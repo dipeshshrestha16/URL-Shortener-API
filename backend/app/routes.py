@@ -15,9 +15,22 @@ def shorten():
     data = request.json
     long_url = data.get('url')
 
-    code = generate_code()
+    print("Recieved URL:", long_url)  # Debugging statement
 
-    collection.insert_one({'code': code, 'long_url': long_url})
+    #check for duplicate urls
+    existing = collection.find_one({'long_url': long_url})
+    if existing:
+        print("URL already exists")
+        return jsonify({'short_url': f"http://localhost:5000/{existing['code']}"})
+    
+    while True:
+        code = generate_code()
+        # Check if the generated code already exists
+        if not collection.find_one({'code': code}):
+            break
+    print("Generated code:", code) 
+
+    collection.insert_one({'code': code, 'long_url': long_url, 'clicks':0})
 
     return jsonify({'short_url': f"http://localhost:5000/{code}"})
 
@@ -25,8 +38,13 @@ def shorten():
 #redirect to original url
 @main.route('/<code>')
 def redirect_url(code):
+    print("Received code for redirection:", code)
+
     result = collection.find_one({'code': code})
+    print("Database  result:", result)
     if result:
+        collection.update_one({'code': code}, {'$inc': {'clicks': 1}})
+
         return redirect(result['long_url'])
     else:
         return jsonify({'error': 'URL not found'}), 404
