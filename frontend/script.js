@@ -1,5 +1,7 @@
 async function shorten() {
+    console.log("Button clicked");
     const url = document.getElementById("urlInput").value;
+    console.log("sending request...");
 
     if (!url){
         alert("Please enter a URL");

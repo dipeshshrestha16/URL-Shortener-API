@@ -5,14 +5,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Rate-Limited URL Shortener</h1>
 
-<h2>URL Shortener</h2>
+    <h2>Create Short URL</h2>
+    <input type="text" id="urlInput" placeholder="Enter long URL" size="50">
+    <button onclick="shorten()">Shorten</button>
+    <p id="result"></p>
 
-<input type="text" id="urlInput" placeholder="Enter URL">
-<button onclick="shorten()">Shorten</button>
+    <h2>Analytics Dashboard</h2>
+    <select id="urlSelect"></select>
+    <button onclick="refreshAnalytics()">Refresh</button>
+    <canvas id="clickChart"></canvas>
 
-<p id="result"></p>
 
 <script src="script.js"></script>
+<script src="analytics.js"> </script>
 </body>
 </html>
