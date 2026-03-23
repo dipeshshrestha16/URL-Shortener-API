@@ -1,24 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>URL Shortener</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>URL Shortener</title>
 </head>
 <body>
-    <h1>Rate-Limited URL Shortener</h1>
 
-    <h2>Create Short URL</h2>
-    <input type="text" id="urlInput" placeholder="Enter long URL" size="50">
-    <button onclick="shorten()">Shorten</button>
-    <p id="result"></p>
+  <div class="layout">
 
-    <h2>Analytics Dashboard</h2>
-    <select id="urlSelect"></select>
-    <button onclick="refreshAnalytics()">Refresh</button>
-    <canvas id="clickChart"></canvas>
+    <div class="panel left-panel">
 
+      <div class="section url-shortener">
+        <h2>URL Shortener</h2>
+        <div class="input-row">
+          <input type="text" id="urlInput" placeholder="Enter URL to shorten">
+          <button onclick="shorten()">Shorten</button>
+        </div>
+        <p id="result"></p>
+      </div>
 
-<script src="script.js"></script>
-<script src="analytics.js"> </script>
+      <div class="section analytics-controls">
+        <h2>Analytics Dashboard</h2>
+        <div class="input-row">
+          <select id="urlSelect"></select>
+          <button onclick="refreshAnalytics()">Refresh</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="panel right-panel">
+      <div class="chart-wrapper">
+        <canvas id="clickChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>

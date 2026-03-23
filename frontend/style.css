@@ -1,34 +1,110 @@
 body {
-    font-family: Arial;
-    text-align: center;
-    margin-top: 100px;
-    background: #f4f4f4;
+  font-family: Arial;
+  margin: 0;
+  padding: 40px;
+  background: #f4f4f4;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-input {
-    padding: 12px;
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+/* ── Two-column wrapper ── */
+.layout {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ── Shared panel base ── */
+.panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ── Left panel: controls ── */
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ── Right panel: chart ── */
+.right-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.chart-wrapper {
+  width: 100%;
+}
+
+/* ── Section headings ── */
+.section h2 {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+  text-align: left;
+}
+
+/* ── Input rows ── */
+.input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input,
+#urlSelect {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  background: #fafafa;
+  min-width: 0;
 }
 
 button {
-    padding: 12px 20px;
-    margin-left: 10px;
-    background: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-    #urlSelect {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 300px;
+  padding: 11px 18px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background 0.2s;
 }
 
-#clickChart {
-    max-width: 600px;
-    margin-top: 20px;
+button:hover {
+  background: #333;
 }
+
+#result {
+  margin: 10px 0 0 0;
+  font-size: 0.88rem;
+  color: #444;
+  word-break: break-all;
+  text-align: left;
+}
+
+/* ── Responsive: stack on small screens ── */
+@media (max-width: 700px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    flex: none;
+    width: 100%;
+  }
 }
