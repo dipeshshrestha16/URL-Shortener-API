@@ -3,43 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <title>URL Shortener</title>
 </head>
+
 <body>
+
+  <!-- HERO -->
+  <div class="hero-header">
+    <h1 class="hero-title">URL Shortener</h1>
+    <p class="hero-sub">Paste it. <span class="accent">Snip it.</span> Track it.</p>
+  </div>
 
   <div class="layout">
 
+    <!-- LEFT PANEL -->
     <div class="panel left-panel">
 
-      <div class="section url-shortener">
-        <h2>URL Shortener</h2>
+      <!-- SHORTENER -->
+      <div class="section">
+        <h2>Shorten a URL</h2>
+
         <div class="input-row">
-          <input type="text" id="urlInput" placeholder="Enter URL to shorten">
-          <button onclick="shorten()">Shorten</button>
+          <input type="text" id="urlInput" placeholder="https://example.com">
+          <button id="shortenBtn">Shorten</button>
         </div>
-        <p id="result"></p>
+
+        <!-- RATE LIMIT -->
+        <div id="rateLimitBox" class="rate-limit-box hidden">
+          ⚠ Rate limit hit. Try again in <span id="countdown">--</span>s
+        </div>
+
+        <!-- RESULT -->
+        <div id="successBox" class="result-box hidden">
+          <div class="result-label">Shortened URL</div>
+          <div class="result-row">
+            <span id="shortUrl" class="short-url"></span>
+            <button id="copyBtn" class="copy-btn">Copy</button>
+          </div>
+          <div id="originalUrl" class="result-original"></div>
+        </div>
       </div>
 
-      <div class="section analytics-controls">
+      <!-- ANALYTICS -->
+      <div class="section">
         <h2>Analytics Dashboard</h2>
+
         <div class="input-row">
           <select id="urlSelect"></select>
-          <button onclick="refreshAnalytics()">Refresh</button>
+          <button id="refreshAllBtn">Refresh</button>
         </div>
+
+        <div id="emptyState" class="empty-state hidden">
+          No URLs shortened yet.
+        </div>
+
+        <!-- STATS -->
+        <div id="analyticsPanel" class="analytics-panel hidden">
+          <div class="panel-meta">
+            <span id="panelAlias" class="panel-alias"></span>
+            <span id="panelOriginal" class="panel-original"></span>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-label">Total Clicks</div>
+              <div id="statTotal" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-label">Last 7 Days</div>
+              <div id="statPeriod" class="stat-value">0</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-label">Daily Avg</div>
+              <div id="statAvg" class="stat-value">0</div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
 
+    <!-- RIGHT PANEL -->
     <div class="panel right-panel">
       <div class="chart-wrapper">
+        <div id="chartPlaceholder" class="chart-placeholder">
+          Select a URL to see analytics
+        </div>
         <canvas id="clickChart"></canvas>
       </div>
     </div>
 
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="js/shorten.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
