@@ -15,3 +15,19 @@ This project includes:
 * Middleware: CORS
 * Database: MongoDB
 * Deployment: Docker
+* API Testing: Postman
+---
+## Deploy the project
+1. Clone Git Repo (VS Code terminal):
+git clone https://github.com/dipeshshrestha16/URL-Shortener-API
+cd URL-Shortener-API
+
+2. Running with docker:
+* docker-compose up --build
+* docker-compose stop (for stopping deployement)
+* docker-compose down (to start the docker deployement)
+
+3. Accessing the localhost:
+* Frontend: https://localhost/5500
+* Backend: https://localhost/5000
+
