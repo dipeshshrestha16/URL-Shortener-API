@@ -18,18 +18,18 @@ This project includes:
 * API Testing: Postman
 ---
 ## Deploy the project
-1. Clone Git Repo (VS Code terminal):
+#### 1. Clone Git Repo (VS Code terminal):
 * git clone https://github.com/dipeshshrestha16/URL-Shortener-API
 * cd URL-Shortener-API
 
-2. Running with docker:
+#### 2. Running with docker:
 * docker-compose up --build
 * docker-compose stop (for stopping deployement)
 * docker-compose start (to start the docker deployement)
 * docker-compose down (to stop and remove stored docker container)
 * docker-compose up --build (to rebuild the container)
 
-3. Accessing the localhost:
+#### 3. Accessing the localhost:
 * Frontend: https://localhost/5500
 * Backend: https://localhost/5000
 
