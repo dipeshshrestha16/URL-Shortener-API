@@ -4,7 +4,7 @@ A full-stack URL shortener built using Flask , with analytics, rate-limiting and
 ---
 ## Project overview
 This project includes:
-* URL shortener that generates 6 character codes.
+* URL shortener that generates accessable unique 6 character-code.
 * Rate limiting (5 request per minute).
 * Click tracking for shortened URLs.
 * Analytical dashboard for precision click track record past 7 days.
@@ -25,9 +25,12 @@ This project includes:
 2. Running with docker:
 * docker-compose up --build
 * docker-compose stop (for stopping deployement)
-* docker-compose down (to start the docker deployement)
+* docker-compose start (to start the docker deployement)
+* docker-compose down (to stop and remove stored docker container)
+* docker-compose up --build (to rebuild the container)
 
 3. Accessing the localhost:
 * Frontend: https://localhost/5500
 * Backend: https://localhost/5000
+
 
