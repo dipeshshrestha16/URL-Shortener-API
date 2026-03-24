@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
+  <!-- font api -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <title>URL Shortener</title>
@@ -17,7 +17,7 @@
 
 <body>
 
-  <!-- HERO -->
+  <!--hero class-->
   <div class="hero-header">
     <h1 class="hero-title">URL Shortener</h1>
     <p class="hero-sub">Paste it. <span class="accent">Snip it.</span> Track it.</p>
@@ -25,10 +25,10 @@
 
   <div class="layout">
 
-    <!-- LEFT PANEL -->
+    <!-- left panel -->
     <div class="panel left-panel">
 
-      <!-- SHORTENER -->
+  
       <div class="section">
         <h2>Shorten a URL</h2>
 
@@ -37,12 +37,12 @@
           <button id="shortenBtn">Shorten</button>
         </div>
 
-        <!-- RATE LIMIT -->
+        <!--rate limit -->
         <div id="rateLimitBox" class="rate-limit-box hidden">
           ⚠ Rate limit hit. Try again in <span id="countdown">--</span>s
         </div>
 
-        <!-- RESULT -->
+        <!-- shortened url result -->
         <div id="successBox" class="result-box hidden">
           <div class="result-label">Shortened URL</div>
           <div class="result-row">
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <!-- ANALYTICS -->
+      <!-- analytic section -->
       <div class="section">
         <h2>Analytics Dashboard</h2>
 
@@ -66,7 +66,7 @@
           No URLs shortened yet.
         </div>
 
-        <!-- STATS -->
+        
         <div id="analyticsPanel" class="analytics-panel hidden">
           <div class="panel-meta">
             <span id="panelAlias" class="panel-alias"></span>
@@ -95,7 +95,7 @@
 
     </div>
 
-    <!-- RIGHT PANEL -->
+    <!-- right panel for analytics -->
     <div class="panel right-panel">
       <div class="chart-wrapper">
         <div id="chartPlaceholder" class="chart-placeholder">
