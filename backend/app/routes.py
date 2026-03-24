@@ -42,9 +42,11 @@ def generate_code(length=6):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 
+@main.route("/")
+def home():
+    return "URL Shortener API is running!"
+
 # api route to shorten url
-
-
 @main.route("/shorten", methods=["POST"])
 @rate_limiter
 def shorten():
