@@ -19,8 +19,8 @@ This project includes:
 ---
 ## Deploy the project
 1. Clone Git Repo (VS Code terminal):
-git clone https://github.com/dipeshshrestha16/URL-Shortener-API
-cd URL-Shortener-API
+* git clone https://github.com/dipeshshrestha16/URL-Shortener-API
+* cd URL-Shortener-API
 
 2. Running with docker:
 * docker-compose up --build
