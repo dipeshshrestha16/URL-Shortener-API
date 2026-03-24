@@ -33,4 +33,23 @@ This project includes:
 * Frontend: https://localhost/5500
 * Backend: https://localhost/5000
 
+---
+## Rate Limiter logic
+* Limits to 5 request (MAX_REQUESTS) per 60 Seconds (TIME_WINDOW)
+* Uses dictionary (rate_limit_data = {}) :
+- {
+    "ip" : [time_stamp]
+  }
+
+### Working mechanism:
+* Stores the timestamps of each requested ip for last 60 seconds
+* if count request reaches 5 -> blocks request and returns remaining time.
+
+JSON example:
+{
+  "error" : "Rate limit exceeded",
+  "retry_after" : 50
+}
+
+ 
 
